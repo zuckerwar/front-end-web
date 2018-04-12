@@ -1,0 +1,311 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #add9de;
+  font-family: 'Coda', cursive;
+  display: block;
+  margin: 0;
+
+}
+
+h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 5em;
+  margin: 40px 0 0 0;
+  color: #10224e;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+h2 {
+  color: #10224e;
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  width: 100%;
+  font-size: 3em;
+}
+
+h2.subtitle {
+  color: #8d151e;
+  font-size: 2em;
+  font-weight: 200;
+  margin-top: 0;
+}
+
+h3 {
+  font-family: 'Coda', cursive;
+  color: #10224e;
+  font-size: 1em;
+}
+
+h3.play {
+  color: #8d151e;
+  font-family: 'Lobster', cursive;
+}
+
+ /* Score Panel */
+
+.score-panel {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
+  justify-content: center;
+  max-width: 800px;
+}
+
+.counter,
+.timer,
+.rating,
+.restart {
+  width: 25%;
+  text-align: center;
+ }
+
+.restart h3:hover {
+  color: #5978ab;
+  cursor: pointer;
+}
+
+/* Game board and cards */
+
+.board {
+  display: flex;
+  margin: auto;
+  max-width: 1110px;
+  flex-wrap: wrap;
+  width: 740px;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.card {
+  position: relative;
+  float: left;
+  margin: 5px;
+  width: 175px;
+  height: 175px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.card-back,
+.card-front {
+  background-color: #10224e;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border-radius: 4px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  font-size: 5.5em;
+}
+
+.card-back {
+  background-color: #fff;
+  font-size: 6em;
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  color: #10224e;
+}
+
+.matched .card-back {
+  background-color: #5978ab;
+  color: #fff;
+  animation: flash 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.unmatched .card-back {
+  background-color: #e2001a;
+  color: #fff;
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.card.flipped .card-front {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+.card.flipped .card-back {
+  -webkit-transform: rotateY(0);
+  transform: rotateY(0);
+}
+
+/* Modal */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.close {
+  color: #aaa;
+  font: bold 24px/24px Helvetica, Arial, Sans-Serif;
+  width: 100%;
+  text-align: right;
+}
+
+.close:focus,
+.close:hover {
+  color: #10224e;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  padding: 40px;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.2);
+  animation-name: slideInDown;
+  animation-duration: 0.2s;
+}
+
+.modal-restart,
+.modal-restart .restart {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.modal-score {
+  float: left;
+  text-align: center;
+  width: 50%;
+}
+
+/* Media Queries */
+
+@media (max-width: 800px) {
+  h1{
+    font-size: 75px;
+  }
+
+  .card {
+    width: 150px;
+    height: 150px;
+  }
+
+  .board {
+    max-width: 640px;
+  }
+}
+
+@media (max-width: 660px) {
+  .card {
+    width: 125px;
+    height: 125px;
+  }
+
+  .board {
+    max-width: 540px;
+  }
+}
+
+@media (max-width: 550px) {
+  h1 {
+    font-size: 64px;
+    margin-bottom: 10px;
+  }
+
+  h2.subtitle {
+    font-size: 1.4em;
+  }
+
+  .card {
+    width: 100px;
+    height: 100px;
+  }
+
+  .card-front {
+    font-size: 3.5em;
+  }
+
+  .card-back {
+    font-size: 4em;
+  }
+
+  .board {
+    max-width: 440px;
+  }
+}
+
+/* CSS Animations from https://daneden.github.io/animate.css/ */
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes flash {
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}

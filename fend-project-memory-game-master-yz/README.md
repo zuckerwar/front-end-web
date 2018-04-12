@@ -21,5 +21,5 @@ These Interactions are included in the game:
 - Modal: congratulates the player for finishing the game and shows
 
 ## Instructions
-To play the game download download or clone the repo:
+To play the game download or clone the repo:
 `git clone https://github.com/zuckerwar/front-end-web.git`

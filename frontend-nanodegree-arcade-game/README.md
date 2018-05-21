@@ -18,5 +18,5 @@ add game gif
 In order to play the game download the repo or clone the project:
 
 ```
-$ git https://github.com/zuckerwar/front-end-web.git
+$ git clone git@github.com:zuckerwar/front-end-web.git
 ```

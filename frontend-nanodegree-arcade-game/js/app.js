@@ -1,5 +1,5 @@
 /**
- * @description Enemies our player must avoid
+ * @description Enemies the player must avoid
  * @constructor
  * @param {number} x - Enemy's x coordinate on canvas
  * @param {number} y - Enemy's y coordinate on canvas
@@ -17,13 +17,8 @@ var Enemy = function(x, y, speed) {
     this.sprite = 'images/enemy-bug.png';
 };
 
-// Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-
     // Multiplies the moement by the dt parameter
     this.x += this.speed * dt;
 
@@ -49,7 +44,7 @@ Enemy.prototype.render = function() {
 };
 
 /**
- * @description Player class, epresents the player
+ * @description Player class, represents the player
  * @constructor
  * @param {number} x - Player's x coordinate on canvas
  * @param {number} y - Player's y coordinate on canvas
@@ -107,9 +102,7 @@ Player.prototype.handleInput = function (keyPress) {
 // Place the player object in a variable called player
 var player = new Player (202, 407);
 
-// Now instantiate your objects.
 // Enemies array
-
 var allEnemies = [];
 
 // Position of the enemies on the canvas

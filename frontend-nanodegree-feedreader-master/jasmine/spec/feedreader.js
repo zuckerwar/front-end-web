@@ -104,7 +104,7 @@ $(function() {
 
       });
 
-             it('loaded by the loadFeed', function(done) {
+             it('loaded by the loadFeed and content changes', function(done) {
                console.log(previousEntry);
                console.log(nextEntry);
                expect(previousEntry).not.toEqual(nextEntry);

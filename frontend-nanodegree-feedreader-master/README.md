@@ -11,8 +11,7 @@ To view the feedreader website download the repo or clone the project:
 ```
 $ git clone git@github.com:zuckerwar/front-end-web.git
 ```
-
-open 'index.html' in your browser.
+navigate to feedreader project folder and open `index.html` in your browser.
 
 
 ## Tests

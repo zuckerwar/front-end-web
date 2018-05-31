@@ -16,16 +16,16 @@ navigate to feedreader project folder and open `index.html` in your browser.
 
 ## Tests
 ### RSS Feeds:
-- Feeds are Defined
-- Feed URL is not empty
-- Feed names are not empty
+- Feeds are Defined and not empty
+- Feed URL is defined and not empty
+- Feed names are defined and not empty
 
 ###The Menu:
 - The menu is hidden by default
 - When clicked the menu changes visibility
 
 ### Initial Entries:
-- Feed container has at least 1 entry
+- Feed is called and container has at least a single entry
 
 ### New Feed Selection:
-- Feed content changes when new feed is selected
+- Feed is loaded and content changes
